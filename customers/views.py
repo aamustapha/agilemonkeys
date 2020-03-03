@@ -14,6 +14,9 @@ class ListCreateCustomerView(ListCreateAPIView):
     serializer_class = CustomerSerializer
     queryset = Customer.objects.all()
 
+    def perform_create(self, serializer):
+        serializer.save(modifier=self.request.user, owner=self.request.user)
+
 
 class CustomerDetailView(RetrieveUpdateDestroyAPIView):
     """
@@ -25,3 +28,6 @@ class CustomerDetailView(RetrieveUpdateDestroyAPIView):
     """
     serializer_class = CustomerSerializer
     queryset = Customer.objects.all()
+
+    def perform_update(self, serializer):
+        serializer.save(modifier=self.request.user)
