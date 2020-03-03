@@ -99,3 +99,28 @@ class TestCustomer(TestCase):
             'picture': 'http://testserver/media/pic-for-testing.png'
         }
         self.assertDictEqual(read_request.json(), expected_result)
+
+    def test_check_updates_modifier(self):
+        """Test that the moidifier is updated when custtomer is updated."""
+        self.test_create_customer_with_auth()
+        update = {
+            'surname': 'Mustapha'
+        }
+        user2 = {
+            'email': 'abdulhakeemmustapha2@gmail.com',
+            'username': 'amustapha2',
+            'password': 'theagilemonkeys'
+        }
+        self.create_user_and_signin(user=user2)
+        update_request = self.client.patch('/customers/1/', update)
+        self.assertEqual(update_request.status_code, status.HTTP_200_OK)
+        read_request = self.client.get('/customers/1/')
+        expected_result = {
+            'id': 1,
+            'name': 'Raliyat',
+            'surname': 'Mustapha',
+            'owner': 1,
+            'modifier': 2,
+            'picture': None
+        }
+        self.assertDictEqual(read_request.json(), expected_result)
