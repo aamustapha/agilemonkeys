@@ -7,9 +7,9 @@ from .serializers import CustomerSerializer
 
 class ListCreateCustomerView(ListCreateAPIView):
     """
-    This view accepts
-    -> POST REQUEST: to create a new customer
-    -> GET REQUEST: to list all existing customers
+    This view accepts \n
+    \t- POST REQUEST: to create a new customer\n
+    - GET REQUEST: to list all existing customers\n
     """
     serializer_class = CustomerSerializer
     queryset = Customer.objects.all()
@@ -20,11 +20,11 @@ class ListCreateCustomerView(ListCreateAPIView):
 
 class CustomerDetailView(RetrieveUpdateDestroyAPIView):
     """
-    This view accepts the following request methods
-    -> GET: Fetches a single customer information
-    -> PUT: Full update of customer information
-    -> PATCH: Partial update of customer information
-    -> DELETE: Deletes a customer information
+    This view accepts the following request methods\n
+    \t- GET: Fetches a single customer information\n
+    - PUT: Full update of customer information\n
+    - PATCH: Partial update of customer information\n
+    - DELETE: Deletes a customer information
     """
     serializer_class = CustomerSerializer
     queryset = Customer.objects.all()
