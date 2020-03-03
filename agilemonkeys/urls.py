@@ -38,5 +38,6 @@ urlpatterns = [path('admin/', admin.site.urls),
                path('auth/', include('djoser.urls')),
                path('auth/', include('djoser.urls.authtoken')),
                path('', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+               path('custom-auth/', include('authentication.urls')),
                path('customers/', include('customers.urls'))
                ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
