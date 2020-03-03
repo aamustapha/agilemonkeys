@@ -39,3 +39,4 @@
   sha: 1.11.2
   hooks:
     - id: forbid-binary
+      exclude: .png
