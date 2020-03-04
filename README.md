@@ -1,5 +1,5 @@
 # TheAgileMonekeys MiniCRM
-### Challenge
+## Challenge
 A Mini CRM API for the second phase of TheAgileMonkeys recruitment process!
 
 The key features:
@@ -9,13 +9,13 @@ The key features:
 - Admins should be able to perform CRUD operations on users.
 - Admins should be able to make other users admin or reduce their permission.
 
-### Approach
+## Approach
 By using django's packed in features for basic CRUD applications. The following are all operations that can be performed
-#### Without Authentication
+### Without Authentication
  - Create new user account by sending a `POST` request to `auth/users/`. Fields are: username, password, email
  - Login by sending a `POST` request to `auth/token/login`. Fields are username, password.
 
-#### Authentication Required
+### Authentication Required
 After login, add `Authorization: Token {token}` to all subsequent request headers.
  - Customers can be created by sending a `POST` request to `customers/`. Fields are name, surname, picture
  - Customers can be listed by sending a `GET` request to `customers/`
@@ -24,7 +24,7 @@ After login, add `Authorization: Token {token}` to all subsequent request header
  - Customer can be deleted by sending `DELETE` request to `customers/{id}/`
  - I can delete my account by sending `DELETE` request to `auth/users/{my_id}/`.
 
-#### Admin Account required
+### Admin Account required
 This activities requires Authentication with elevated permissions
  - Users can be listed by sending `GET` request to `auth/users/`.
  - User can be created by sending `POST` request to `auth/users/`. Fields are: username, password, email
@@ -67,7 +67,7 @@ make migrations
 make test
 ```
 
-# Enterr docker environment
+# Enter docker environment
 ```bash
 # Make sure docker container is running
 
