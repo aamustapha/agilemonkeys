@@ -1,1 +1,1 @@
-gunicorn djangoherokuapp.wsgi --log-file -
+gunicorn agilemonkeys.wsgi --log-file -
