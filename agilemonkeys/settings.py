@@ -26,7 +26,7 @@ SECRET_KEY = '#97ca+tloq(y7+zw2(t-$a&#_lr8gknc9!$3%&^k*4a9kn_-_z'
 IN_PRODUCTION = os.getenv('production', False)
 DEBUG = not IN_PRODUCTION
 
-ALLOWED_HOSTS = ['agilemonkeys.herokuapp.com']
+ALLOWED_HOSTS = ['agilemonkeys.herokuapp.com', 'localhost']
 
 # Application definition
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -129,7 +130,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_ROOT = 'static'
+STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
