@@ -1,1 +1,1 @@
-gunicorn agilemonkeys.wsgi --log-file -
+web: gunicorn agilemonkeys.wsgi --log-file -
