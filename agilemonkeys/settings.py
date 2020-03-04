@@ -23,9 +23,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#97ca+tloq(y7+zw2(t-$a&#_lr8gknc9!$3%&^k*4a9kn_-_z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+IN_PRODUCTION = os.getenv('production', False)
+DEBUG = not IN_PRODUCTION
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['agilemonkeys.herokuapp.com']
 
 # Application definition
 
